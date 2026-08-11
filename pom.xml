@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.tpe</groupId>
+    <artifactId>hotel-management-system-390</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hibernate.version>7.1.0.Final</hibernate.version> <!-- Hibernate sürümü -->
+        <ehcache.version>3.6.3</ehcache.version> <!-- Ehcache sürümü -->
+        <postgresql.version>42.7.7</postgresql.version> <!-- PostgreSQL JDBC sürümü -->
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+
+        <!-- Hibernate'i standart cache sistemine bağlayan ara kablodur (köprüdür).
+         Kendisi veri saklamaz, veriyi saklayacak olana taşır. -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jcache</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- Ehcache (2. Seviye Cache) Bu ise işi yapan gerçek depodur.
+        Veriler fiziksel olarak bunun içinde tutulur.Yani; hibernate-jcache olmadan Hibernate,
+         ehcache ile konuşamaz. İkisi bir bütündür.-->
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${ehcache.version}</version>
+            <scope>runtime</scope> <!-- Çalışma zamanında gereklidir -->
+        </dependency>
+
+    </dependencies>
+
+
+</project>
